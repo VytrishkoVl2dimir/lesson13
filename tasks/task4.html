@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home Work</title>
+</head>
+
+<body>
+	<h2>Задача 4</h2>
+	<h3>Умова задачі</h3>
+	<p>
+		З використанням замикань розробити ітератор, тобто функцію, що буде поступово за окремими викликами видавати по
+		одну букву наперед заданого слова. З використанням нього розробити гру «Перекладач». Виводимо для користувача опис
+		цього слова і по одну букву користувач вводить переклад цього слова. Підрахувати кількість вгаданих букв.
+	</p>
+
+	<h2>Розв'язок</h2>
+	<script>
+		//========================================================================================================================================================
+
+		function wordDestructor(word) {
+			let letterIndex = 0
+			function getLetter() {
+				if (letterIndex < word.length) {
+					let letter = word[letterIndex]
+					letterIndex++
+					return letter
+				}
+			}
+			return getLetter
+		}
+		function transletter(tasks) {
+			for (let i = 0; i < tasks.length; i++) {
+				let counterLetter = 0
+				let currentWord = tasks[i][1]
+				let letter = wordDestructor(currentWord)
+				for (let j = 0; j < currentWord.length; j++) {
+					userLetter = prompt(`${tasks[i][0]}. Введіть літеру маленькими англійськими літерами`)
+					if (userLetter === letter()) counterLetter++
+				}
+				alert(`Загадане слово ${currentWord}. Вгаданих літер ${counterLetter}`)
+				document.write(`Загадане слово ${i + 1} - ${currentWord}. Вгаданих літер ${counterLetter}<br>`)
+			}
+		}
+
+		const arrayTasks = [
+			['Місяць, наступний після серпня', 'september'],
+			['Місяць, наступний після листопада', 'december'],
+			['День тижня, наступний після пятниці', 'saturday']
+		]
+
+		transletter(arrayTasks)
+		//========================================================================================================================================================
+
+	</script>
+	<style>
+		h2 {
+			color: #08368b;
+		}
+
+		h3 {
+			color: #06700f;
+		}
+
+		h4 {
+			color: #4e0670;
+		}
+	</style>
+</body>
+
+</html>
